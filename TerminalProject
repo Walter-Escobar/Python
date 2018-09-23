@@ -1,0 +1,41 @@
+import os
+exit = 'n'
+while exit == 'n':
+    com = input(os.getcwd()+": ")
+    def ls():
+        print(*('\n' + x for x in list(os.listdir('.'))))
+    def cd():
+        a = input('\n Path?')
+        os.chdir(a)
+    def fow():
+        a = input('\n \t Path?')
+        file = open(a,'w')
+        file.write(input('\n - '))
+        file.close()
+
+    def For():
+        a = input('\n \t Path?')
+        file = open(a, 'r')
+        print(file.read())
+        file.close()
+    def mkdir():
+        a = input('\n \t Path?')
+        if not os.path.exists(a):
+            os.makedirs(a)
+    def mkfil():
+        a = input('\n Path?')
+        open(os.path.join(a, input('File Name? : ')), 'w')
+    if com == 'ls':
+        ls()
+    elif com == 'cd':
+        cd()
+    elif com == 'for':
+        For()
+    elif com == 'fow':
+        fow()
+    elif com == 'mkdir':
+        mkdir()
+    elif com == 'mkfil':
+        mkfil()
+
+    exit = input('Exit? (y/n)')
