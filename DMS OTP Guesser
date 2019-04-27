@@ -1,0 +1,50 @@
+import time
+import pyperclip
+
+
+
+# pip install time
+# pip install pyperclip
+# pip install pynput
+
+
+
+''' 
+HOW TO USE - 
+step 1 - position your browser like in this picture - https://imgur.com/a/fcUR89Q 
+(note that this was built on a 1920,1080 screen. for other resolutions, edit the "mouse.position = (1230, 481)" line. use ms paint to figure
+out the coordinates)
+
+step 2 - click "run" 
+
+'''
+def jugaad():
+    for i in range(1000,10000):
+        from pynput.mouse import Button, Controller
+        mouse = Controller()
+        mouse.position = (1230, 481)
+        mouse.press(Button.left)
+        mouse.release(Button.left)
+        mouse.press(Button.left)
+        mouse.release(Button.left)
+        from pynput.keyboard import Key, Controller
+        key = Controller()
+        code = i
+        pyperclip.copy(code)
+        key.press(Key.ctrl.value)
+        key.press('v')
+        key.release(Key.ctrl.value)
+        key.release('v')
+
+        print(code)
+        #i += 1
+        from pynput.mouse import Button, Controller
+        mouse = Controller()
+        mouse.position = (1330, 551)
+        mouse.press(Button.left)
+        mouse.release(Button.left)
+        time.sleep(0.205)
+
+
+
+jugaad()
