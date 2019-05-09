@@ -32,7 +32,7 @@ def jugaad():
         i += 1
         from pynput.mouse import Button, Controller
         mouse = Controller()
-        mouse.position = (1330, 551)
+        mouse.position = (1330, 551) # Tweak this for your own display. Use mspaint.
         mouse.press(Button.left)
         mouse.release(Button.left)
         time.sleep(0.205)
