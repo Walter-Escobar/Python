@@ -260,9 +260,9 @@ def root():                               # where the main goods are
         #cv2.imshow("Bot Jarodhar (PRE_ALPHA_STAGE)", gray_image)
         new_screen, org,m1,m2 = img_process(screen)
 
-        if m1 >0 and m2 >0 :
-            left()
-            print('left')
+        if m1 >0 and m2 >0 :                                  # I believe this is what we need to fiddle around with to get it to work-
+            left()                                            # -the best. Use any drawing tool to figure for what values should you make
+            print('left')                                     # - what move... 
         elif m1 < 0 and m2 < 0:
             right()
             print('right')
@@ -281,6 +281,9 @@ def root():                               # where the main goods are
             break
 root()
 
+#### NOTE - another method that I tried was to follow the yellow lanes which is painted on roads, but it seems like a single line isn't
+# enought to guide a bot.
+# I'd be happy to receive more ideas.
 
 
 
