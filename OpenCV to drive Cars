@@ -79,7 +79,7 @@ import cv2
 from mss import mss
 from numpy import ones, vstack
 import numpy
-from numpy.linalg import lstsq
+from numpy.linalg import lstsq          # imported because stackoverflow told me to do so :P
 from statistics import mean
 
 
@@ -159,9 +159,9 @@ def draw_lanes(img, lines, color=[0, 255, 255], thickness=3):
         for lanes in final_lanes:
             line_counter[lanes] = len(final_lanes[lanes])
 
-        top_lanes = sorted(line_counter.items(), key=lambda item: item[1])[::-1][:2]
+        top_lanes = sorted(line_counter.items(), key=lambda item: item[1])[::-1][:2]     
 
-        lane1_id = top_lanes[0][0]
+        lane1_id = top_lanes[0][0]        
         lane2_id = top_lanes[1][0]
 
         def average_lane(lane_data):
@@ -177,9 +177,9 @@ def draw_lanes(img, lines, color=[0, 255, 255], thickness=3):
             return int(mean(x1s)), int(mean(y1s)), int(mean(x2s)), int(mean(y2s))
 
         l1_x1, l1_y1, l1_x2, l1_y2 = average_lane(final_lanes[lane1_id])
-        l2_x1, l2_y1, l2_x2, l2_y2 = average_lane(final_lanes[lane2_id])
+        l2_x1, l2_y1, l2_x2, l2_y2 = average_lane(final_lanes[lane2_id])             # final lanes was a dictionary, the slope here was used to access the lines ( keys and values) 
 
-        return [l1_x1, l1_y1, l1_x2, l1_y2], [l2_x1, l2_y1, l2_x2, l2_y2], lane1_id, lane2_id
+        return [l1_x1, l1_y1, l1_x2, l1_y2], [l2_x1, l2_y1, l2_x2, l2_y2], lane1_id, lane2_id   # lane1_id and lane2_id are the slopes
     except Exception as e:
         #print(str(e))
         pass
